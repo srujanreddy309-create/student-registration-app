@@ -1,12 +1,26 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [FormsModule],
   templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('student-registration-app');
+  studentName: string = '';
+  email: string = '';
+  course: string = '';
+  message: string = '';
+
+  submitForm() {
+    this.message = 'Registration Successful!';
+  }
+
+  clearForm() {
+    this.studentName = '';
+    this.email = '';
+    this.course = '';
+    this.message = '';
+  }
 }
